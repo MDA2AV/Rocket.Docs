@@ -1,0 +1,62 @@
+# Hugo configuration file
+title: Wired.IO
+
+# import hextra as module
+module:
+  imports:
+    - path: github.com/imfing/hextra
+
+markup:
+  # allow raw html
+  goldmark:
+    renderer:
+      unsafe: true
+
+  # enable hextra syntax highlight
+  highlight:
+    noClasses: false
+
+menu:
+  main:
+    - name: Basic
+      pageRef: /basic
+      weight: 1
+    - name: Advanced
+      pageRef: /advanced
+      weight: 2
+    - name: Performance
+      pageRef: /performance
+      weight: 4
+    - name: GenHTTP
+      pageRef: /genhttp
+      weight: 3
+    - name: Discord
+      weight: 5
+      url: "https://discord.gg/psxPcgZBF6"
+      params:
+        icon: discord
+    - name: GitHub
+      weight: 5
+      url: "https://github.com/MDA2AV/Wired.IO"
+      params:
+        icon: github
+    - name: Search
+      weight: 6
+      params:
+        type: search
+
+params:
+  defaultColorMode: dark
+  navbar:
+    displayTitle: true
+    displayLogo: true
+    logo:
+      path: images/logo.png
+      dark: images/logo.png
+      link: https://mda2av.github.io/Wired.IO.Docs/
+      width: 50
+      height: 50
+
+  footer:
+    displayCopyright: false
+    displayPoweredBy: false
