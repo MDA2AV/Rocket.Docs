@@ -25,7 +25,7 @@ internal class Program
         var engine = new Engine
         {
             Port = 8080,
-            NReactors = 12 // Single reactor, increase this number for higher throughput if needed.
+            NReactors = 1 // Single reactor, increase this number for higher throughput if needed.
         };
         engine.Listen();
 
@@ -135,8 +135,6 @@ internal class Program
                 totalAdvanced += advanced;
 
                 var currentRingIndex = GetCurrentRingIndex(in totalAdvanced, rings, out var currentRingAdvanced);
-
-                // TODO: If a request is handled, the inflight data should be resetted, check if it's being done
 
                 if (!found)
                 {

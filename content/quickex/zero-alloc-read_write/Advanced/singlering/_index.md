@@ -26,7 +26,7 @@ internal class Program
         var engine = new Engine
         {
             Port = 8080,
-            NReactors = 12 // Single reactor, increase this number for higher throughput if needed.
+            NReactors = 1 // Single reactor, increase this number for higher throughput if needed.
         };
         engine.Listen();
 
@@ -147,10 +147,14 @@ internal class Program
             // Hotpath, typically each ring contains a full request and inflight buffer isn't used
             position = data.IndexOf("\r\n\r\n"u8);
             var found = position != -1;
+            
+            if (!found)
+            {
+                position = 0;
+                return false;
+            } 
 
             position += 4;
-            
-            if (!found) return false;
 
             var requestSpan = data[..position];
             
@@ -166,10 +170,14 @@ internal class Program
             var sequence = unmanagedMemories.ToReadOnlySequence();
             var reader = new SequenceReader<byte>(sequence);
             var found = reader.TryReadTo(out ReadOnlySequence<byte> headersSequence, "\r\n\r\n"u8);
+            
+            if (!found)
+            {
+                position = 0;
+                return false;
+            } 
 
             position = reader.Position.GetInteger();
-            
-            if (!found) return false;
             
             // Handle the request
             // ...
