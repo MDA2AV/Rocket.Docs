@@ -1,5 +1,5 @@
 # Hugo configuration file
-title: Rocket
+title: uRocket
 
 # import hextra as module
 module:
@@ -20,7 +20,7 @@ menu:
   main:
     - name: GitHub
       weight: 5
-      url: "https://github.com/MDA2AV/Rocket"
+      url: "https://github.com/MDA2AV/uRocket"
       params:
         icon: github
     - name: Search
@@ -36,7 +36,7 @@ params:
     logo:
       path: images/logo.png
       dark: images/logo.png
-      link: https://mda2av.github.io/Rocket.Docs/
+      link: https://mda2av.github.io/uRocket.Docs/
       width: 50
       height: 50
 
